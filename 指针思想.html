@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>指针思想</title>
+  </head>
+  <body>
+    <script>
+      // 试寻找字符串中，连续重复次数最多的字符
+      var str = "aaaaaaabbbbbbbcccccccccccccccddddd";
+
+      // 指针
+      var i = 0;
+      var j = 0;
+
+      // 当i还在范围内的时候，应该继续寻找
+      while (i <= str.length - 1) {
+        if (str[i] !== str[j]) {
+          console.log(`${i}和${j}之间的文字连续相同`);
+          i = j;
+        }
+        j++;
+      }
+    </script>
+  </body>
+</html>
