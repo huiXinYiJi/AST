@@ -1,0 +1,24 @@
+{
+  "name": "ast",
+  "version": "1.0.0",
+  "description": "> 模板语法  ======通过抽象语法树AST进行过渡=====>> 正常的HTML语法",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huiXinYiJi/AST.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huiXinYiJi/AST/issues"
+  },
+  "homepage": "https://github.com/huiXinYiJi/AST#readme",
+  "devDependencies": {
+    "webpack": "^5.69.1",
+    "webpack-cli": "3",
+    "webpack-dev-server": "3"
+  }
+}

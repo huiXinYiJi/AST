@@ -14,15 +14,27 @@
       // 指针
       var i = 0;
       var j = 0;
+      // 当前重复次数最多的次数
+      var maxRepeatCount = 0;
+      var maxRepeatChart = str[0];
 
       // 当i还在范围内的时候，应该继续寻找
       while (i <= str.length - 1) {
         if (str[i] !== str[j]) {
-          console.log(`${i}和${j}之间的文字连续相同`);
+          console.log(
+            `${i}和${j}之间的文字连续相同: ${str[i]}, 长度: ${j - i}`
+          );
+          if (j - i > maxRepeatCount) {
+            maxRepeatCount = j - i;
+            maxRepeatChart = str[i];
+          }
+          // 让指针i追上指针j
           i = j;
         }
         j++;
       }
+
+      console.log(maxRepeatChart, "连续重复了", maxRepeatCount, "次");
     </script>
   </body>
 </html>

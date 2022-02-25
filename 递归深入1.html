@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>递归深入1</title>
+  </head>
+  <body>
+    <script>
+      // 输出斐波那契数列的前10项：即1、1、2、3、5、8、13、21、34、22
+
+      // 缓存对象
+      var cache = {};
+
+      // 返回下标为n的这项的数字
+      function fib(n) {
+        console.log("run", n);
+        // 判断缓存对象中有没有对应值，有的话，直接用
+        if (n in cache) {
+          return cache[n];
+        }
+        // 缓存对象没有的话
+        var v = n === 0 || n === 1 ? 1 : fib(n - 1) + fib(n - 2);
+        // 写入缓存
+        cache[n] = v;
+        return v;
+      }
+
+      for (let i = 0; i <= 9; i++) {
+        console.log(fib(i));
+      }
+    </script>
+  </body>
+</html>

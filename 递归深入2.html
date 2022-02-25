@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>递归深入2</title>
+  </head>
+  <body>
+    <script>
+      // 试将高维数组[1,2,[3,[4,5],6],7,[8],9]变为value，children的数组对象
+      var arr = [1, 2, [3, [4, 5], 6], 7, [8], 9];
+
+      // 转换函数
+      function convert(arr) {
+        var result = [];
+        for (let i = 0; i < arr.length; i++) {
+          if (typeof arr[i] === "number") {
+            result.push({ value: arr[i] });
+          } else if (Array.isArray(arr[i])) {
+            result.push({ children: convert(arr[i]) });
+          }
+        }
+        return result;
+      }
+
+      /**
+       * item可能是数组也可能是数字
+       */
+      function convert2(item) {
+        if (typeof item === "number") {
+          return {
+            value: item,
+          };
+        } else if (Array.isArray(item)) {
+          return {
+            children: item.map((_item) => convert2(_item)),
+          };
+        }
+      }
+
+      console.log(convert2(arr));
+      // 输出
+      // [
+      //   { value: 1 },
+      //   { value: 2 },
+      //   { value: 3 },
+      //   {
+      //     children: [{ value: 4 }, { value: 5 }],
+      //   },
+      // ];
+    </script>
+  </body>
+</html>
